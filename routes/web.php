@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
+Route::get('online-bejelentkezes', [ 'as' => 'appointments.index', 'uses' => 'AppointmentsController@index']);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

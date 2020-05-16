@@ -1245,12 +1245,21 @@ body{
 .services .single-service{
 	margin:30px 0;
 	position:relative;
-	padding-left:70px;
+	/*padding-left:70px;*/
 }
 .services .single-service i{
 	font-size:45px;
 	color:#1a76d1;
 	position:absolute;
+	left:0;
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	transition:all 0.4s ease;
+}
+.services .single-service img{
+	font-size:45px;
+	color:#1a76d1;
+	/*position:absolute;*/
 	left:0;
 	-webkit-transition:all 0.4s ease;
 	-moz-transition:all 0.4s ease;
@@ -1569,7 +1578,7 @@ body{
 .pricing-table .single-table .title {
 	font-size: 21px;
 	color: #2C2D3F;
-	margin-top: 30px;
+	/*margin-top: 30px;*/
 	margin-bottom: 15px;
 }
 .pricing-table .single-table .amount {
@@ -1867,10 +1876,12 @@ body{
 	color: #2C2D3F;
 	width: 100%;
 	margin-bottom: 10px;
+	font-size: 18px;
 }
 .doctor-details-item .doctor-details-work .time-sidual li span{
 	display:inline-block;
 	float:right;
+	font-size: 18px;
 }
 .doctor-details-item .doctor-details-work .day-head .time {
 	font-weight: 400;
@@ -3970,7 +3981,7 @@ body{
 }
 .footer .single-footer h2{
 	color:#fff;
-	font-size:20px;
+	font-size:32px;
 	font-weight:600;
 	text-transform:capitalize;
 	margin-bottom:40px;
@@ -4101,3 +4112,7 @@ body{
 /*=========================
 	End Footer CSS
 ===========================*/
+
+.breadcrumbs {
+    background-image: url('/img/bread-bg.jpg');
+}

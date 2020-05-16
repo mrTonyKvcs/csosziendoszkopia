@@ -1,11 +1,11 @@
-<section id="team" class="team section overlay" data-stellar-background-ratio="0.5">
+<section id="orvosok" class="team section overlay" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Have Specialist Doctors To Solve Your Problems</h2>
+                    <h2>Orvosok</h2>
                     <img src="img/section-img2.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    {{--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>--}}
                 </div>
             </div>
         </div>

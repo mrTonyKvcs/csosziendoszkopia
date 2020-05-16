@@ -1,10 +1,9 @@
-
-<section class="portfolio section" >
+<section id="rendelo" class="portfolio section" >
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
+                    <h2>A rendelő bemutatása</h2>
                     <img src="img/section-img.png" alt="#">
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>

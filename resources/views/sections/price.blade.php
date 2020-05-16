@@ -1,82 +1,26 @@
-<section class="pricing-table section">
+<section id="araink" class="pricing-table section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Provide You The Best Treatment In Resonable Price</h2>
+                    <h2>Áraink</h2>
                     <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    {{--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>--}}
                 </div>
             </div>
         </div>
         <div class="row">
             <!-- Single Table -->
             <div class="col-lg-4 col-md-12 col-12">
-                <div class="single-table wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
-                    <!-- Table Head -->
-                    <div class="table-head">
-                        <div class="icon">
-                            <i class="icofont icofont-ui-cut"></i>
-                        </div>
-                        <h4 class="title">Plastic Suggery</h4>
-                        <div class="price">
-                            <p class="amount">$199<span>/ Per Visit</span></p>
-                        </div>	
-                    </div>
-                    <!-- Table List -->
-                    <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
-                    </ul>
-                    <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
-                    </div>
-                    <!-- Table Bottom -->
-                </div>
-            </div>
-            <!-- End Single Table-->
-            <!-- Single Table -->
-            <div class="col-lg-4 col-md-12 col-12">
-                <div class="single-table wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
-                    <!-- Table Head -->
-                    <div class="table-head">
-                        <div class="icon">
-                            <i class="icofont icofont-tooth"></i>
-                        </div>
-                        <h4 class="title">Teeth Whitening</h4>
-                        <div class="price">
-                            <p class="amount">$299<span>/ Per Visit</span></p>
-                        </div>	
-                    </div>
-                    <!-- Table List -->
-                    <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
-                    </ul>
-                    <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
-                    </div>
-                    <!-- Table Bottom -->
-                </div>
-            </div>
-            <!-- End Single Table-->
-            <!-- Single Table -->
-            <div class="col-lg-4 col-md-12 col-12">
                 <div class="single-table wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
                     <!-- Table Head -->
                     <div class="table-head">
                         <div class="icon">
-                            <i class="icofont-heart-beat"></i>
+                            <img class="icofont" src="icons/online.svg" width="75">
                         </div>
-                        <h4 class="title">Heart Suggery</h4>
+                        <h4 class="title">Online konzultáció</h4>
                         <div class="price">
-                            <p class="amount">$399<span>/ Per Visit</span></p>
+                            <p class="amount">15000 Ft<span>/ Alkalom</span></p>
                         </div>	
                     </div>
                     <!-- Table List -->
@@ -88,7 +32,7 @@
                         <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
                     </ul>
                     <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
+                        <a class="btn" href="#">Bejelentkezés</a>
                     </div>
                     <!-- Table Bottom -->
                 </div>
