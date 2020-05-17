@@ -11,7 +11,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 		
 		<!-- Title -->
-        <title>Mediplus - Medical and Doctor Directory HTML Template.</title>
+        <title>Csőszi Endoszkopia</title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
