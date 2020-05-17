@@ -835,7 +835,7 @@ body{
 	padding:120px 0;
 }
 .fun-facts{
-	background:url('https://via.placeholder.com/1600x350');
+	background:url('/img/counter.jpg');
 	background-size:cover;
 	background-repeat:no-repeat;
 }
@@ -1679,7 +1679,7 @@ body{
 	Start Team CSS
 ======================*/ 
 .team{
-	background-image:url('https://via.placeholder.com/1920x1000');
+	background-image:url('/img/team.jpg');
 	background-size:cover;
 	background-position:center;
 	background-repeat:no-repeat;

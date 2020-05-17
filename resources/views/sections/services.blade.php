@@ -9,17 +9,19 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
-                    {{--<i class="icofont icofont-prescription"></i>--}}
-                    <img class="icofont" src="icons/online.svg" width="55">
-                    <h4><a href="service-details.html">Online konzultáció</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+        <div class="row d-flex flex-column flex-md-row justify-content-center">
+            @for ($i = 0; $i < 3; $i++)
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
+                        {{--<i class="icofont icofont-prescription"></i>--}}
+                        <img class="icofont" src="icons/online.svg" width="55">
+                        <h4><a href="{{ route('appointments.index') }}">Online konzultáció</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+                    </div>
+                    <!-- End Single Service -->
                 </div>
-                <!-- End Single Service -->
-            </div>
+            @endfor
         </div>
     </div>
 </section>

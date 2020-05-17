@@ -3,86 +3,55 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Orvosok</h2>
+                    <h2>A csapat</h2>
                     <img src="img/section-img2.png" alt="#">
                     {{--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>--}}
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-12" data-tilt>
+            <div class="col-lg-4 col-md-6 col-12" data-tilt>
                 <!-- Single Team -->
                 <div class="single-team wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
                     <div class="t-head">
-                        <img src="https://via.placeholder.com/560x575" alt="#">
+                        <img src="/img/doctor.png" alt="#">
                         <div class="t-icon">
-                            <a href="appointment.html" class="btn">Get Appointment</a>
+                            <a href="{{ route('appointments.index') }}" class="btn">Online konzultáció</a>
                         </div>
                     </div>
                     <div class="t-bottom">
-                        <p>Neurosurgeon</p>
-                        <h2><a href="doctor-details.html">Collis Molate</a></h2>
+                        <p>Belgyógyász</p>
+                        <h2><a href="doctor-details.html">DR. CSŐSZI TIBOR</a></h2>
                     </div>
                 </div>
                 <!-- End Single Team -->
             </div>	
-            <div class="col-lg-3 col-md-6 col-12 " data-tilt>
+            <div class="col-lg-4 col-md-6 col-12" data-tilt>
                 <!-- Single Team -->
-                <div class="single-team wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
-                    <!-- Team Head -->
+                <div class="single-team wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
                     <div class="t-head">
-                        <img src="https://via.placeholder.com/560x575" alt="#">
-                        <div class="t-icon">
-                            <a href="appointment.html" class="btn">Get Appointment</a>
-                        </div>
+                        <img src="/img/doctor2.png" alt="#">
                     </div>
-                    <!-- Team Bottom -->
                     <div class="t-bottom">
-                        <p>Neurosurgeon</p>
-                        <h2><a href="doctor-details.html">Domani Plavon</a></h2>
+                        <p>Asszisztens</p>
+                        <h2><a href="doctor-details.html">Nev</a></h2>
                     </div>
-                    <!--/ End Team Bottom -->
                 </div>
                 <!-- End Single Team -->
-            </div>	
-            <div class="col-lg-3 col-md-6 col-12 " data-tilt>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12" data-tilt>
                 <!-- Single Team -->
-                <div class="single-team wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
-                    <!-- Team Head -->
+                <div class="single-team wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
                     <div class="t-head">
-                        <img src="https://via.placeholder.com/560x575" alt="#">
-                        <div class="t-icon">
-                            <a href="appointment.html" class="btn">Get Appointment</a>
-                        </div>
+                        <img src="/img/doctor3.png" alt="#">
                     </div>
-                    <!-- Team Bottom -->
                     <div class="t-bottom">
-                        <p>Dental Surgeon</p>
-                        <h2><a href="doctor-details.html">John Mard</a></h2>
+                        <p>Asszisztens</p>
+                        <h2><a href="doctor-details.html">Neve</a></h2>
                     </div>
-                    <!--/ End Team Bottom -->
                 </div>
                 <!-- End Single Team -->
-            </div>		
-            <div class="col-lg-3 col-md-6 col-12" data-tilt>
-                <!-- Single Team -->
-                <div class="single-team wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s">
-                    <!-- Team Head -->
-                    <div class="t-head">
-                        <img src="https://via.placeholder.com/560x575" alt="#">
-                        <div class="t-icon">
-                            <a href="appointment.html" class="btn">Get Appointment</a>
-                        </div>
-                    </div>
-                    <!-- Team Bottom -->
-                    <div class="t-bottom">
-                        <p>Neurosurgeon</p>
-                        <h2><a href="doctor-details.html">Amanal Frond</a></h2>
-                    </div>
-                    <!--/ End Team Bottom -->
-                </div>
-                <!-- End Single Team -->
-            </div>		
+            </div>
         </div>
     </div>
 </section>

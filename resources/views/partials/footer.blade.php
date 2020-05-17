@@ -28,7 +28,7 @@
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-12">
 							<div class="copyright-content">
-								<p>© Copyright 2018  |  csosziendoszkopia.hu </p>
+								<p>© Copyright 2020  |  csosziendoszkopia.hu </p>
 							</div>
 						</div>
 					</div>
