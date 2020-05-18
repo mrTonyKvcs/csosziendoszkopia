@@ -32,7 +32,7 @@
                 <div class="col-lg-3 col-md-3 col-12 d-flex align-items-center justify-content-between">
                     <!-- Start Logo -->
                     <div class="logo">
-                        <a href="index.html" style="font-size: 23px; color: #1a76d1">Csőszi Endoszkopia</a>
+                        <a href="index.html" style="font-size: 23px; color: #1a76d1">Csőszi Endoszkópia</a>
                     </div>
                     <!-- End Logo -->
                     <!-- Mobile Nav -->
