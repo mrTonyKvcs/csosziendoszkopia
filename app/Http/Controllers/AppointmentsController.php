@@ -50,6 +50,12 @@ class AppointmentsController extends Controller
                     ->subject('Új online bejelentkezes');
         });
 
-        return view('appointments.greeting', compact('appointment'));
+        if (Mail::failures()) {
+           return response()->Fail('Hiba');
+        }
+        else{
+            return view('appointments.greeting', compact('appointment'));
+         }
+
     }
 }
