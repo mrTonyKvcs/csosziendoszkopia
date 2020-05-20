@@ -1,7 +1,7 @@
 <section class="slider index2">
     <div class="hero-slider">
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url('/img/sliders/5.png')">
+        <div class="single-slider" style="background-image:url('/img/sliders/5-white.png')">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
@@ -19,7 +19,7 @@
         </div>
         <!-- Start End Slider -->
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url('/img/sliders/2.png')">
+        <div class="single-slider" style="background-image:url('/img/sliders/2-white.png')">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
