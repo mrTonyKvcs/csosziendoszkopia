@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>A csapat</h2>
+                    <h2>Orvosok</h2>
                     <img src="img/section-img2.png" alt="#">
                     {{--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>--}}
                 </div>

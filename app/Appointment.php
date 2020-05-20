@@ -10,7 +10,7 @@ class Appointment extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'application_id', 'appointment', 'status'
+        'applicant_id', 'appointment', 'status'
     ];
 
     /**

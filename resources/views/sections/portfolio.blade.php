@@ -14,9 +14,10 @@
         <div class="row">
             <div class="col-lg-12 col-12">
                 <div class="owl-carousel portfolio-slider">
-                    @for ($i = 0; $i < 8; $i++)
+                    @for ($i = 1; $i < 7; $i++)
                     <div class="single-pf wow fadeIn" data-wow-delay="0.2s" data-wow-duration="0.8s">
-                        <img src="https://picsum.photos/320/250" alt="#">
+                        {{--<img src="/img/sliders/{{$i}}.png" alt="#">--}}
+                        <img src="/img/portfolios/{{$i}}.jpg" alt="#" style="width: auto; height: 320px;">
                     </div>
                     @endfor
                 </div>

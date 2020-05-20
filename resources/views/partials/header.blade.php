@@ -32,7 +32,7 @@
                 <div class="col-lg-3 col-md-3 col-12 d-flex align-items-center justify-content-between">
                     <!-- Start Logo -->
                     <div class="logo">
-                        <a href="index.html" style="font-size: 23px; color: #1a76d1">Csőszi Endoszkópia</a>
+                        <a href="/" style="font-size: 23px; color: #1a76d1">Csőszi Endoszkópia</a>
                     </div>
                     <!-- End Logo -->
                     <!-- Mobile Nav -->
@@ -81,7 +81,7 @@
                                     <li><a href="/">Főoldal</a></li>
                                     <li><a href="/#vizsgalataink">Vizsgálataink</a></li>
                                     <li><a href="/#rendelo">A rendelő bemutatása</a></li>
-                                    <li><a href="/#orvosok">A Csapat</a></li>
+                                    <li><a href="/#orvosok">Orvosok</a></li>
                                     <li><a href="/#araink">Áraink</a></li>
                                     <li><a href="/#footer">Kapcsolat</a></li>
                                 </ul>

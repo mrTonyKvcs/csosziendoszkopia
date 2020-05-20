@@ -30,11 +30,12 @@
 								<h3>Időpontfoglalás és fizetés</h3>
 								<p>Foglaljon időpontot az online konzultációra!</p>
 							</div>
-							<form class="form" action="#">
+							<form class="form" action="{{ route('appointments.store') }}" method="POST">
+                                @csrf
 								<div class="row">
 									<div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
-                                            <input name="name" type="text" placeholder="Név">
+                                            <input name="name" type="text" placeholder="Név" rerquired>
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
@@ -44,20 +45,22 @@
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
-											<input name="phone" type="text" placeholder="Telefonszám">
+											<input name="phone" type="text" placeholder="Telefonszám" required>
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
-                                            <select id="appointment">
+                                            <select id="appointment" name="appointment" required>
                                                 <option value="" selected>Válasszon időpontot</option>
-                                                <option value="">2020.10.05 - 13:00</option>
+                                                @foreach($appointments as $date)
+                                                    <option value="{{ $date->id }}">{{ $date->appointment }}</option>
+                                                @endforeach
                                             </select>
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
-											<textarea name="message" placeholder="Megjegyzés....."></textarea>
+											<textarea name="comment" placeholder="Megjegyzés....."></textarea>
 										</div>
 									</div>
 								</div>
@@ -86,13 +89,13 @@
                                 </div>	
                             </div>
                             <!-- Table List -->
-                            <ul class="table-list">
-                                <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                                <li class="my-3"><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                                <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                                <li class="my-3"><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                                <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
-                            </ul>
+                            {{--<ul class="table-list">--}}
+                                {{--<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>--}}
+                                {{--<li class="my-3"><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>--}}
+                                {{--<li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>--}}
+                                {{--<li class="my-3"><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>--}}
+                                {{--<li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>--}}
+                            {{--</ul>--}}
                             <!-- Table Bottom -->
                         </div>
                     </div>

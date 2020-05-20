@@ -567,7 +567,15 @@ body{
 	color:#fff;
 }
 .slider .single-slider .btn.primary:before{
-	background:#1A76D1;
+	/*background:#1A76D1;*/
+	position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    opacity: 0.5;
 }
 .slider .owl-carousel .owl-nav {
 	margin: 0;
@@ -4115,4 +4123,16 @@ body{
 
 .breadcrumbs {
     background-image: url('/img/bread-bg.jpg');
+}
+
+.blue-button {
+    color: #fff;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #1a76d1;
+    border-radius: 4px;
+    display: block;
+    font-size: 18px;
 }

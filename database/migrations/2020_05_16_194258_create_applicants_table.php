@@ -18,7 +18,7 @@ class CreateApplicantsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
