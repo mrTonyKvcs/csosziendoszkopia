@@ -17,6 +17,14 @@ Route::get('/', [ 'as' => 'pages.index', 'uses' => 'PagesController@index']);
 Route::get('online-bejelentkezes', [ 'as' => 'appointments.index', 'uses' => 'AppointmentsController@index']);
 Route::post('online-bejelentkezes/uj-bejelentkezo', [ 'as' => 'appointments.store', 'uses' => 'AppointmentsController@store']);
 
-Auth::routes();
+//Login
+Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Admin
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('/dashboard', 'HomeController@index')->name('home');
+    Route::get('/idopontok', [ 'as' => 'admin.appointments.index', 'uses' => 'Admin\AppointmentsController@index']);
+    Route::get('/idopontok/uj-letrehozas', [ 'as' => 'admin.appointments.create', 'uses' => 'Admin\AppointmentsController@create']);
+    Route::post('/idopontok/uj-letrehozas', [ 'as' => 'admin.appointments.store', 'uses' => 'Admin\AppointmentsController@store']);
+    Route::delete('/idopontok/{id}', [ 'as' => 'admin.appointments.destroy', 'uses' => 'Admin\AppointmentsController@destroy']);
+});

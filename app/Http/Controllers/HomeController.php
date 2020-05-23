@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $appointments = Appointment::where('user_id', Auth::id())
+            ->whereNotNull('applicant_id')
+            ->orderBy('appointment', 'desc')
+            ->get();
+
+        return view('home', compact('appointments'));
     }
 }
