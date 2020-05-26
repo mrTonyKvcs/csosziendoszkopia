@@ -5,7 +5,7 @@ return [
         'job' => 'Főorvos',
         'slug' => 'dr-csoszi-tibor',
         'name' => 'Dr Csőszi Tibor',
-        'description' => 'szoveg',
+        'description' => 'Dr. Csőszi Tibor született kecskemétiként 1996-ban végeztem a Szent-Györgyi Orvostudományi Egyetemen, Szegeden summa cum laude minősítéssel. Ezt követően Kecskeméten a Repülőkórházban majd a Bács-Kiskun Megyei Kórházban kezdtem dolgozni, ahol 2001-ban belgyógyászat,2003-ban gasztroenterológia, 2006-ban klinikai onkológia szakvizsgákat tettem. 1998 óta foglalkozom emésztőszeri endoszkópiával, mesteremnek néhai Dr. Domján Lajos főorvos urat mondhatom, kitől volt szerencsém a szakmát első kézből elsajátítani. Később az Ő rendelőjét átvéve indult el a Csőszi Endoszkópos KFT működése. 2007-től Szolnokon is dolgozom a Hetényi Géza kórházban, ahol 2008 óta vezetem a Megyei Onkológiai Központot.  Fő érdeklődési területem a gyomor és bélrendszer jó és rosszindulatú betegségei, a rákelőző állapotok, a szűrés ill. a bél gyulladásos megbetegedései valamint ételallergiák és intoleranciák kérdése.',
         'image_path' => ''
     ],
     [

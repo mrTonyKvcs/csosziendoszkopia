@@ -13,11 +13,11 @@
             @foreach ($services as $service)
                 <div class="col-lg-4 col-md-6 col-12">
                     <!-- Start Single Service -->
-                    <div class="single-service wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
+                    <div class="text-center single-service wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
                         {{--<i class="icofont icofont-prescription"></i>--}}
                         <img class="icofont" src="icons/{{ $service['icon'] }}" width="55">
                         <h4><a href="{{ route('appointments.index') }}">{{ $service['name'] }}</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+                        {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	--}}
                     </div>
                     <!-- End Single Service -->
                 </div>

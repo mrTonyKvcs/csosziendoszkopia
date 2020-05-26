@@ -10,7 +10,7 @@ class Applicant extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name', 'email', 'phone', 'comment'
+        'name', 'email', 'phone', 'comment', 'payment_id', 'payment_request_id', 'order_number'
     ];
 
     /**

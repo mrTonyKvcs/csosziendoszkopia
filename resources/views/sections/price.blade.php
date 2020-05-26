@@ -16,7 +16,7 @@
                 <div class="owl-carousel portfolio-slider">
                     @foreach ($services as $service)
                         <div class="single-pf wow fadeIn" data-wow-delay="0.2s" data-wow-duration="0.8s">
-                                <div class="single-table wow fadeInUp d-flex flex-column align-items-center justify-content-center" style="min-height: 437px;" data-wow-delay="0.8s" data-wow-duration="1s">
+                                <div class="single-table wow fadeInUp d-flex flex-column align-items-center justify-content-center" style="min-height: 350px;" data-wow-delay="0.8s" data-wow-duration="1s">
                                     <!-- Table Head -->
                                     <div class="table-head">
                                         <div class="d-flex justify-content-center">
@@ -29,7 +29,7 @@
                                     </div>
                                     <!-- Table List -->
                                     <ul class="text-center table-list">
-                                        <li style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.</li>
+                                        {{--<li style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.</li>--}}
                                         @if (isset($service['prices'][1]))
                                             <li style="font-size: 19px; color: #1A76D1">{{ $service['prices'][1]['text'] }}<span> {{ $service['prices'][1]['price'] }} Ft</span></li>
                                         @endif

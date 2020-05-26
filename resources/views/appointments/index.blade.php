@@ -85,8 +85,8 @@
                                 </div>
                                 <h4 class="title">Online konzultáció</h4>
                                 <div class="price">
-                                    <p class="my-3 amount" style="font-size: 18px;">15000 Ft<span>/ Alkalom</span></p>
-                                </div>	
+                                    <p class="my-3 amount" style="font-size: 18px;">12000 Ft<span>/ Alkalom</span></p>
+                                </div>
                             </div>
                             <!-- Table List -->
                             {{--<ul class="table-list">--}}

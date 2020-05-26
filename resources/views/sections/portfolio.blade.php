@@ -5,7 +5,11 @@
                 <div class="section-title">
                     <h2>A rendelő bemutatása</h2>
                     <img src="img/section-img.png" alt="#">
-                    <p>Kecskemét, Faragó Béla fasor 4, 6000</p>
+                    <p>A Csőszi Endoszkópos KFT két telephellyel működik Kecskeméten gyomor-bél rendszeri
+endoszkópiás profillal. Mindkét helyszínen magas technikai színvonalon, magasan kvalifikált
+munkatársakkal várjuk betegeinket. Az egyik rendelő a Bagoly Egészségház keretei között működik, a
+másik, nagyobb kapacitású egy exkluzív környezetben, Kecskemét központjához közel került
+kialakításra a Faragó Béla fasor 4 szám alatt.</p>
                 </div>
             </div>
         </div>

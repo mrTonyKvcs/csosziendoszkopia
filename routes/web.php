@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. groupNow create something great!
 |
 */
-Route::get('/callback', function () {
-    \Log::info($_SERVER);
-});
 
 Route::get('/', [ 'as' => 'pages.index', 'uses' => 'PagesController@index']);
 Route::get('orvosok/{slug}', [ 'as' => 'pages.doctor', 'uses' => 'PagesController@doctor']);
@@ -22,6 +19,7 @@ Route::get('orvosok/{slug}', [ 'as' => 'pages.doctor', 'uses' => 'PagesControlle
 //Appointments
 Route::get('online-bejelentkezes', [ 'as' => 'appointments.index', 'uses' => 'AppointmentsController@index']);
 Route::post('online-bejelentkezes/uj-bejelentkezo', [ 'as' => 'appointments.store', 'uses' => 'AppointmentsController@store']);
+Route::get('online-bejelentkezes-befejezese', 'AppointmentsController@greeting');
 
 //Login
 Auth::routes(['register' => false]);
