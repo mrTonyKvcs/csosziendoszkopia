@@ -40,7 +40,7 @@
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
-											<input name="email" type="email" placeholder="Email">
+											<input name="email" type="email" placeholder="Email" required>
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">

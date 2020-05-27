@@ -108,8 +108,8 @@ class AppointmentsController extends Controller
                 });
             }
 
-            Mail::send('emails.new-applicant', $applicant->toArray(), function($message) use ($request) {
-                $message->to(['attila.kovacs92@gmail.com'])
+            Mail::send('emails.new-applicant', $applicant->toArray(), function($message) use ($appointment) {
+                $message->to([$appointment->user->email])
                     ->subject('Új online bejelentkezes');
             });
 
