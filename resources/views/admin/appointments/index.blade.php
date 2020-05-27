@@ -38,7 +38,7 @@
                                     <td class="text-center ">
                                         <form action="{{ route('admin.appointments.destroy', $appointment->id) }}" method="POST">
                                             @csrf
-                                            @method('PUT')
+                                            @method('DELETE')
                                             <button href="#" class="btn btn-danger btn-icon-split">
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-trash"></i>

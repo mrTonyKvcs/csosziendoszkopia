@@ -53,7 +53,7 @@
                                             <select id="appointment" name="appointment" required>
                                                 <option value="" selected>Válasszon időpontot</option>
                                                 @foreach($appointments as $date)
-                                                    <option value="{{ $date->id }}">{{ $date->appointment }}</option>
+                                                    <option value="{{ $date->id }}">{{ $date->user->name }} | {{ $date->appointment }}</option>
                                                 @endforeach
                                             </select>
 										</div>

@@ -25,11 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('user_id', Auth::id())
+        $allAppointments = Appointment::where('user_id', Auth::id())
+            ->count();
+
+        $reservedAppointments = Appointment::where('user_id', Auth::id())
             ->whereNotNull('applicant_id')
             ->orderBy('appointment', 'desc')
             ->get();
 
-        return view('home', compact('appointments'));
+        $freeAppointment = Appointment::where('user_id', Auth::id())
+            ->whereNull('applicant_id')
+            ->count();
+
+        return view('home', compact('allAppointments', 'freeAppointment', 'reservedAppointments'));
     }
 }
