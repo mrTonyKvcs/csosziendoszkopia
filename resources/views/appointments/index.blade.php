@@ -89,13 +89,10 @@
                                 </div>
                             </div>
                             <!-- Table List -->
-                            {{--<ul class="table-list">--}}
-                                {{--<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>--}}
-                                {{--<li class="my-3"><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>--}}
-                                {{--<li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>--}}
-                                {{--<li class="my-3"><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>--}}
-                                {{--<li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>--}}
-                            {{--</ul>--}}
+                            <ul class="table-list">
+                                <li class="fs-16"><i class="mr-1 icofont icofont-ui-check"></i>Ön az oldalon keresztül tud időpontot foglalni telefonos vagy inernetes konzultációra ( Skype vagy Zoom)</li>
+                                <li class="mt-3 fs-16"><i class="mr-1 icofont icofont-ui-check"></i>Az időpont foglalása és a kártyás fizetést követően az orvos felveszi Önnel a kapcsolatot és megtörténik a megbeszélés.</li>
+                            </ul>
                             <!-- Table Bottom -->
                         </div>
                     </div>

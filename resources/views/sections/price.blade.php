@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-lg-12 col-12">
                 <div class="owl-carousel portfolio-slider">
-                    @foreach ($services as $service)
+                    @foreach ($prices as $service)
                         <div class="single-pf wow fadeIn" data-wow-delay="0.2s" data-wow-duration="0.8s">
                                 <div class="single-table wow fadeInUp d-flex flex-column align-items-center justify-content-center" style="min-height: 350px;" data-wow-delay="0.8s" data-wow-duration="1s">
                                     <!-- Table Head -->

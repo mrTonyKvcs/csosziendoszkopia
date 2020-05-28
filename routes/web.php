@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ 'as' => 'pages.index', 'uses' => 'PagesController@index']);
 Route::get('orvosok/{slug}', [ 'as' => 'pages.doctor', 'uses' => 'PagesController@doctor']);
+Route::get('arak', [ 'as' => 'pages.prices', 'uses' => 'PagesController@prices']);
 
 //Appointments
 Route::get('online-bejelentkezes', [ 'as' => 'appointments.index', 'uses' => 'AppointmentsController@index']);

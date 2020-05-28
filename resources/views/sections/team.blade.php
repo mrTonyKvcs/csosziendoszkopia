@@ -15,7 +15,7 @@
                     <!-- Single Team -->
                     <div class="single-team wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
                         <div class="t-head">
-                            <img src="/img/doctor.png" alt="#">
+                            <img src="/img/doctors/{{ $doctor['image_path'] }}" alt="#">
                             <div class="t-icon">
                                 <a href="{{ route('pages.doctor', $doctor['slug']) }}" class="btn">Bemutatkozás</a>
                             </div>

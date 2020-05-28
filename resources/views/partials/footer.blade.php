@@ -7,8 +7,7 @@
 							<div class="single-footer">
 								<h2>Kapcsolat</h2>
 								<ul class="time-sidual">
-									<li class="day" style="font-size: 20px;"><i class="icofont-ui-call"></i> <span>+36701234567</span></li>
-									<li class="day" style="font-size: 20px;"><i class="icofont-envelope"></i> <span>info@csosziendoszkopia.hu</span></li>
+                                    <li class="day d-flex justify-content-between" style="font-size: 20px;"><i class="icofont-ui-call"></i><div class="d-flex flex-column"> <span class="text-right"><a href="tel:+36707794367">+36 70 779 43 67</a></span> <small>(Munkanapokon 8:00-17:00 között)</small></div></li>
 									<li class="day" style="font-size: 20px;"><i class="icofont-home"></i> <span>Kecskemét, Faragó Béla fasor 4, 6000</span></li>
 								</ul>
 							</div>

@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="doctor-details-item doctor-details-left">
-                            <img src="/img/doctor.png" alt="#">
+                            <img src="/img/doctors/{{ $doctor['image_path'] }}" alt="#">
                         </div>
                     </div>
                     <div class="col-lg-7">

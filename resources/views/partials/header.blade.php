@@ -82,7 +82,7 @@
                                     <li><a href="/#vizsgalataink">Vizsgálataink</a></li>
                                     <li><a href="/#rendelo">A rendelő bemutatása</a></li>
                                     <li><a href="/#orvosok">Orvosok</a></li>
-                                    <li><a href="/#araink">Áraink</a></li>
+                                    <li><a href="{{ route('pages.prices') }}">Áraink</a></li>
                                     <li><a href="/#footer">Kapcsolat</a></li>
                                 </ul>
                             </nav>
