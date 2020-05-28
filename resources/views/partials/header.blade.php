@@ -45,15 +45,15 @@
                         <div class="single-widget">
                             <i class="icofont-ui-call"></i>
                             <p>Telefonszám</p>
-                            <h4>+880123-467-789</h4>
+                            <h4><a href="tel:+36707794367">+36 70 779 43 67</a></h4>
                         </div>
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
-                        <div class="single-widget">
-                            <i class="icofont-envelope"></i>
-                            <p>Email cím</p>
-                            <h4>pelda@csosziendoszkopia.hu</h4>
-                        </div>
+                        {{--<div class="single-widget">--}}
+                            {{--<i class="icofont-envelope"></i>--}}
+                            {{--<p>Email cím</p>--}}
+                            {{--<h4>pelda@csosziendoszkopia.hu</h4>--}}
+                        {{--</div>--}}
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
                         {{--<div class="single-widget button">--}}
