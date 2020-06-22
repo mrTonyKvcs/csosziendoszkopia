@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDoctorMedicalExaminationPivotTable extends Migration
+class AddRoleFieldToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateDoctorMedicalExaminationPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_medical_examination', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->integer('medical_examination_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('role', ['user', 'doctor', 'admin', 'super-admin'])->default('doctor')->after('id');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateDoctorMedicalExaminationPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_medical_examination');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 }
