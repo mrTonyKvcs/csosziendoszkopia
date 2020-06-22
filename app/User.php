@@ -39,6 +39,11 @@ class User extends Authenticatable
 
     public function appointments()
     {
-        $this->belongsToMany(Appointment::class);
+        return $this->belongsToMany(Appointment::class);
+    }
+
+    public function medicalExaminations()
+    {
+        return $this->belongsToMany(MedicalExamination::class);
     }
 }
