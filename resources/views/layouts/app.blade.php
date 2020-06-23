@@ -3,6 +3,7 @@
     <head>
         <!-- Meta Tags -->
 		<meta charset="utf-8">
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="keywords" content="Site keywords here">
 		<meta name="description" content="">
@@ -59,10 +60,11 @@
 
 		<link rel="stylesheet" href="#" id="colors">
 		
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
 	
+        <div id="app">
 		<!-- Preloader -->
         <div class="preloader">
             <div class="loader">
@@ -107,6 +109,7 @@
 		<!-- Footer Area -->
 		@include('partials.footer')
 		<!--/ End Footer Area -->
+        </div>
 		
 		<!-- jquery Min JS -->
         <script src="/js/jquery.min.js"></script>
@@ -129,7 +132,7 @@
         <!-- ScrollUp JS -->
         <script src="/js/jquery.scrollUp.min.js"></script>
         <!-- Niceselect JS -->
-        <script src="/js/niceselect.js"></script>
+        {{--<script src="/js/niceselect.js"></script>--}}
         <!-- Tilt Jquery JS -->
         <script src="/js/tilt.jquery.min.js"></script>
         <!-- Owl Carousel JS -->
@@ -148,6 +151,6 @@
         <script src="/js/bootstrap.min.js"></script>
         <!-- Main JS -->
         <script src="/js/main.js"></script>
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" defer></script>
     </body>
 </html>

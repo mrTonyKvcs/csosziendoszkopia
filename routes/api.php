@@ -1,5 +1,6 @@
 <?php
 
+use App\MedicalExamination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/callback', 'Api\BarionController@callback');
+
+Route::post('/doctors/{id}', function(Request $request) {
+    $doctors = MedicalExamination::find($request->id)->doctors;
+
+    return response($doctors);
+});

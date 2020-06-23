@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Ramsey\Uuid\Uuid;
 use App\Applicant;
 use App\Appointment;
+use App\MedicalExamination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Http;
@@ -20,9 +21,10 @@ class AppointmentsController extends Controller
 
     public function index()
     {
-        $appointments = $this->appointments->get();
+        $medicalExaminations = MedicalExamination::with('doctors')->get();
+        //$appointments = $this->appointments->get();
 
-        return view('appointments.index', compact('appointments'));
+        return view('appointments.index', compact('medicalExaminations'));
     }
 
     public function store(Request $request)
