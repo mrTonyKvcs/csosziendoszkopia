@@ -39,6 +39,13 @@ Auth::routes(['register' => false]);
 //Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', 'HomeController@index')->name('home');
+
+    //Consultations
+    Route::get('rendelesek', ['as' => 'admin.consultations.index', 'uses' => 'Admin\ConsultationsController@index']);
+    Route::get('rendelesek/uj-rendeles', ['as' => 'admin.consultations.create', 'uses' => 'Admin\ConsultationsController@create']);
+    Route::post('rendelesek/uj-rendeles', ['as' => 'admin.consultations.store', 'uses' => 'Admin\ConsultationsController@store']);
+    Route::delete('/rendelesek/{id}', [ 'as' => 'admin.consultations.destroy', 'uses' => 'Admin\ConsultationsController@destroy']);
+
     Route::get('/idopontok', [ 'as' => 'admin.appointments.index', 'uses' => 'Admin\AppointmentsController@index']);
     Route::get('/idopontok/uj-letrehozas', [ 'as' => 'admin.appointments.create', 'uses' => 'Admin\AppointmentsController@create']);
     Route::post('/idopontok/uj-letrehozas', [ 'as' => 'admin.appointments.store', 'uses' => 'Admin\AppointmentsController@store']);

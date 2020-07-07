@@ -91,7 +91,7 @@
                         <div class="right-bar">
                             <!-- Search Form -->
                             <div class="search-top">
-                                <div class="search"><a href="{{ route('appointments.index') }}" style="width: 200px">Online konzultáció</a></div>
+                                <div class="search"><a href="{{ route('appointments.index') }}" style="width: 200px">Online időpontfoglalás</a></div>
                             </div>
                             <!--/ End Search Form -->
                         </div>

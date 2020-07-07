@@ -12,4 +12,15 @@ class Consultation extends Model
     protected $fillable = [
         'user_id', 'day','open', 'close'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    //Scopes
+    public function scopeActive($query)
+    {
+        return $query->where('day', '>', now());
+    }
 }

@@ -1929,29 +1929,88 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['examinations'],
   data: function data() {
     return {
       doctors: null,
+      consultations: null,
+      consultationId: null,
       medicalExaminations: this.examinations,
-      errors: null
+      errors: null,
+      examination: null,
+      info: null
     };
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  filters: {
+    currency: function currency(value) {
+      return parseFloat(value).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
   },
   methods: {
     getDoctors: function getDoctors(examination) {
       var _this = this;
 
+      this.examination = null;
       this.doctors = null;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/doctors/' + examination.target.value).then(function (response) {
+      this.consultations = null;
+      this.info = null;
+      this.consultationId = null;
+      this.examination = examination.target.value;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/doctors/', {
+        id: this.examination
+      }).then(function (response) {
         _this.doctors = response.data;
       })["catch"](function (e) {
         _this.errors.push(e);
       });
+    },
+    getConsultations: function getConsultations(doctor) {
+      var _this2 = this;
+
+      this.consultations = null;
+      this.consultationId = null;
+      this.info = null;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/consultations/', {
+        id: doctor.target.value,
+        examination: this.examination
+      }).then(function (response) {
+        _this2.info = response.data.info;
+        _this2.consultations = response.data.days;
+      })["catch"](function (e) {
+        _this2.errors.push(e);
+      });
+    },
+    getAppointments: function getAppointments(consultation) {
+      var _this3 = this;
+
+      this.consultationId = consultation;
+      console.log(consultation.target.value);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/appointments/', {
+        consultation_id: consultation.target.value
+      }).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (e) {
+        _this3.errors.push(e);
+      });
+    },
+    formatPrice: function formatPrice(value) {
+      var val = (value / 1).toFixed(2).replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
   }
 });
@@ -6400,7 +6459,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nselect {\n    padding: 15px;\n    font-size: 18px;\n}\n", ""]);
+exports.push([module.i, "\nselect {\n    padding: 15px;\n    font-size: 18px;\n}\n.info {\n    font-size: 18px;\n}\n", ""]);
 
 // exports
 
@@ -38147,10 +38206,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-6" }, [
-    _c("h3", [_vm._v("Időpontfoglalás és fizetés")]),
-    _vm._v(" "),
-    _c("p", [_vm._v("Foglaljon időpontot az online konzultációra!")]),
-    _vm._v(" "),
     _c("div", { staticClass: "w-100" }, [
       _c(
         "select",
@@ -38182,8 +38237,12 @@ var render = function() {
             "select",
             {
               staticClass: "mt-3 w-100",
-              attrs: { id: "appointment", name: "appointment", required: "" },
-              on: { change: function($event) {} }
+              attrs: { id: "appointment", name: "doctor", required: "" },
+              on: {
+                change: function($event) {
+                  return _vm.getConsultations($event)
+                }
+              }
             },
             [
               _c("option", { attrs: { value: "", selected: "" } }, [
@@ -38191,10 +38250,75 @@ var render = function() {
               ]),
               _vm._v(" "),
               _vm._l(_vm.doctors, function(doctor) {
-                return _c("option", { domProps: { value: doctor.slug } }, [
+                return _c("option", { domProps: { value: doctor.id } }, [
                   _vm._v(_vm._s(doctor.name))
                 ])
               })
+            ],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-5 mb-4 info" }, [
+        _vm.info
+          ? _c("p", [
+              _vm._v("A kiválasztott vizsgálat ideje: "),
+              _c("strong", [_vm._v(_vm._s(_vm.info.minutes) + " ")]),
+              _vm._v(" perc")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.info
+          ? _c("p", [
+              _vm._v("A kiválasztott vizsgálat díja: "),
+              _c("strong", [
+                _vm._v(" " + _vm._s(_vm._f("currency")(_vm.info.price)) + " ")
+              ]),
+              _vm._v(" Ft")
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _vm.consultations
+        ? _c(
+            "select",
+            {
+              staticClass: "my-3 w-100",
+              attrs: {
+                id: "consultations",
+                name: "consultation",
+                required: ""
+              },
+              on: {
+                change: function($event) {
+                  return _vm.getAppointments($event)
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "", selected: "" } }, [
+                _vm._v("Válasszon napot")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.consultations, function(consultation) {
+                return _c("option", { domProps: { value: consultation.id } }, [
+                  _vm._v(
+                    _vm._s(
+                      consultation.day +
+                        " | " +
+                        consultation.open +
+                        " - " +
+                        consultation.close
+                    )
+                  )
+                ])
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn w-100", attrs: { type: "submit" } },
+                [_vm._v("Fizetés")]
+              )
             ],
             2
           )

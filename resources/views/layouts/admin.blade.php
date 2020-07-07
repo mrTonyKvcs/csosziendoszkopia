@@ -44,6 +44,21 @@
           <span>Dashboard</span></a>
       </li>
 
+      <div class="sidebar-heading">
+        Rendelések
+      </div>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin.consultations.index') }}">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Rendelési napok</span></a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin.consultations.create') }}">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Új rendelés</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 

@@ -13,6 +13,6 @@ class MedicalExamination extends Model
 
     public function doctors()
     {
-        return $this->belongsToMany(User::class, 'doctor_medical_examination');
+        return $this->belongsToMany(User::class, 'doctor_medical_examination')->withPivot('minutes', 'price');
     }
 }
