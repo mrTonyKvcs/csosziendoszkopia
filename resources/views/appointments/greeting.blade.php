@@ -28,7 +28,7 @@
                     <div class="appointment-inner">
                         <div class="title">
                             <h3>Sikeres online fizetés és bejelentkezés!</h3>
-                            <p class="my-3" style="font-size: 22px;">Az online konzultációs időpontja: <span style="color: #1A76D1;">{{ $appointment->appointment }}</span></p>
+                            <p class="my-3" style="font-size: 22px;">Az időpontja: <span style="color: #1A76D1;">{{ $appointment->consultation->day }} | {{ $appointment->start_at }} - {{ $appointment->end_at}}</span></p>
                             <a href="/" style="font-size: 22px color: #1A76D1;">Vissza a főoldalra</a>
                         </div>
                     </div>
