@@ -29,25 +29,37 @@ class AppointmentsController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'name' => 'required',
             'phone' => 'required',
-            'appointment' => 'required',
-            'email' => 'email'
+            'email' => 'email',
+            'consultation' => 'required',
+            'medical_examination' => 'required',
+            'appointment_time' => 'required'
         ]);
 
+        $price = \DB::table('doctor_medical_examination')
+            ->where('user_id', $request->doctor)
+            ->where('medical_examination_id', $request->medical_examination)
+            ->first()
+            ->price;
 
-        $appointment = $this->appointments->find($request->appointment);
+        $appointmentTime = explode(',', $request->appointment_time);
 
         $applicant = Applicant::create($request->only(['name', 'phone', 'appointment', 'email', 'comment']));
 
-        $appointment->update(['applicant_id' => $applicant->id]);
+        $appointment = Appointment::create([
+            'consultation_id' => $request->consultation,
+            'medical_examination_id' => $request->medical_examination,
+            'applicant_id' => $applicant->id,
+            'start_at' => $appointmentTime[0],
+            'end_at' => $appointmentTime[1],
+        ]);
 
-        $rs = $this->payment($applicant, $appointment->id);
+        $rs = $this->payment($applicant, $appointment, $price);
     }
 
-    public function payment($applicant, $appointmentId)
+    public function payment($applicant, $appointment, $price)
     {
         require_once app_path('Barion/BarionClient.php');
         $myPosKey = "b847cf2ff72c4f5e9768595a988c9cbb";
@@ -58,18 +70,18 @@ class AppointmentsController extends Controller
         $BC = new \BarionClient($myPosKey, $apiVersion, $environment);
 
         $item = new \ItemModel();
-        $item->Name = "Online konzultáció";
-        $item->Description = "Online konzultáció jelentkezés";
+        $item->Name = $appointment->medicalExamination->name;
+        $item->Description = $appointment->medicalExamination->name . " jelentkezés";
         $item->Quantity = 1;
-        $item->Unit = "piece";
-        $item->UnitPrice = 12000;
-        $item->ItemTotal = 12000;
+        $item->Unit = "db";
+        $item->UnitPrice = $price;
+        $item->ItemTotal = $price;
         $item->SKU = "ITEM-01";
 
         $trans = new \PaymentTransactionModel();
         $trans->POSTransactionId = Uuid::uuid4()->toString();
         $trans->Payee = "attila.kovacs92@gmail.com";
-        $trans->Total = 12000;
+        $trans->Total = $price;
         $trans->Currency = \Currency::HUF;
         $trans->Comment = "Test transaction containing the product";
         $trans->AddItem($item);
@@ -83,7 +95,7 @@ class AppointmentsController extends Controller
         $ppr->Locale = \UILocale::HU;
         $ppr->OrderNumber = str_pad('0', 6, $applicant->id, STR_PAD_LEFT);
         $ppr->Currency = \Currency::HUF;
-        $ppr->RedirectUrl = "https://demo.csosziendoszkopia.hu/online-bejelentkezes-befejezese?appointment_id=" . $appointmentId;
+        $ppr->RedirectUrl = "https://demo.csosziendoszkopia.hu/online-bejelentkezes-befejezese?appointment_id=" . $appointment->id;
         $ppr->CallbackUrl = "https://demo.csosziendoszkopia.hu/api/callback?applicant_id=" . $applicant->id;
         $ppr->AddTransaction($trans);
 
@@ -112,7 +124,7 @@ class AppointmentsController extends Controller
             }
 
             Mail::send('emails.new-applicant', $applicant->toArray(), function($message) use ($appointment) {
-                $message->to([$appointment->user->email])
+                $message->to([$appointment->consultation->user->email])
                     ->subject('Új online bejelentkezes');
             });
 
@@ -123,10 +135,9 @@ class AppointmentsController extends Controller
                 return view('appointments.greeting', compact('appointment'));
             }
         } else {
-            $appointments = $this->appointments->get();
-            $appointment->update(['applicant_id' => null]);
+            $medicalExaminations = MedicalExamination::with('doctors')->get();
 
-            return view('appointments.index', compact('appointments'))->with('error', 'Sikertelen fizetes');
+            return view('appointments.index', compact('medicalExaminations'))->with('error', 'Sikertelen fizetes');
         }
     }
 }

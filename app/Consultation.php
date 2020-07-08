@@ -13,6 +13,11 @@ class Consultation extends Model
         'user_id', 'day','open', 'close'
     ];
 
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

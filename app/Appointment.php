@@ -10,7 +10,7 @@ class Appointment extends Model
     use SoftDeletes;
 
     protected $fillable = [
-       'consultation_id', 'applicant_id', 'appointment', 'is_paid'
+       'consultation_id', 'medical_examination_id','applicant_id', 'start_at', 'end_at'
     ];
 
     /**
@@ -28,5 +28,10 @@ class Appointment extends Model
     public function consultation()
     {
         return $this->belongsTo(Consultation::class);
+    }
+
+    public function medicalExamination()
+    {
+        return $this->belongsTo(MedicalExamination::class);
     }
 }

@@ -1942,6 +1942,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['examinations'],
@@ -1952,8 +1953,10 @@ __webpack_require__.r(__webpack_exports__);
       consultationId: null,
       medicalExaminations: this.examinations,
       errors: null,
-      examination: null,
-      info: null
+      examinationId: null,
+      info: null,
+      appointments: null,
+      paying: false
     };
   },
   filters: {
@@ -1965,14 +1968,15 @@ __webpack_require__.r(__webpack_exports__);
     getDoctors: function getDoctors(examination) {
       var _this = this;
 
-      this.examination = null;
+      this.examinationId = null;
       this.doctors = null;
       this.consultations = null;
       this.info = null;
       this.consultationId = null;
-      this.examination = examination.target.value;
+      this.appointments = null;
+      this.examinationId = examination.target.value;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/doctors/', {
-        id: this.examination
+        id: this.examinationId
       }).then(function (response) {
         _this.doctors = response.data;
       })["catch"](function (e) {
@@ -1987,7 +1991,7 @@ __webpack_require__.r(__webpack_exports__);
       this.info = null;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/consultations/', {
         id: doctor.target.value,
-        examination: this.examination
+        examination: this.examinationId
       }).then(function (response) {
         _this2.info = response.data.info;
         _this2.consultations = response.data.days;
@@ -1998,19 +2002,24 @@ __webpack_require__.r(__webpack_exports__);
     getAppointments: function getAppointments(consultation) {
       var _this3 = this;
 
+      this.appointments = null;
       this.consultationId = consultation;
       console.log(consultation.target.value);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/appointments/', {
-        consultation_id: consultation.target.value
+        consultation_id: consultation.target.value,
+        minutes: this.info.minutes
       }).then(function (response) {
-        console.log(response.data);
+        _this3.appointments = response.data;
       })["catch"](function (e) {
         _this3.errors.push(e);
       });
     },
-    formatPrice: function formatPrice(value) {
-      var val = (value / 1).toFixed(2).replace('.', ',');
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    goPaying: function goPaying(appointment) {
+      if (appointment.target.value) {
+        this.paying = true;
+      } else {
+        this.paying = false;
+      }
     }
   }
 });
@@ -38211,7 +38220,11 @@ var render = function() {
         "select",
         {
           staticClass: "mt-3 w-100",
-          attrs: { id: "appointment", name: "appointment", required: "" },
+          attrs: {
+            id: "appointment",
+            name: "medical_examination",
+            required: ""
+          },
           on: {
             change: function($event) {
               return _vm.getDoctors($event)
@@ -38312,15 +38325,58 @@ var render = function() {
                     )
                   )
                 ])
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn w-100", attrs: { type: "submit" } },
-                [_vm._v("Fizetés")]
-              )
+              })
             ],
             2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.appointments
+        ? _c(
+            "select",
+            {
+              staticClass: "my-3 w-100",
+              attrs: {
+                id: "consultations",
+                name: "appointment_time",
+                required: ""
+              },
+              on: {
+                change: function($event) {
+                  return _vm.goPaying($event)
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "", selected: "" } }, [
+                _vm._v("Válasszon időpontot")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.appointments, function(appointment) {
+                return _c(
+                  "option",
+                  {
+                    domProps: {
+                      value: [appointment.start_at, appointment.end_at]
+                    }
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(appointment.start_at + " - " + appointment.end_at)
+                    )
+                  ]
+                )
+              })
+            ],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.paying
+        ? _c(
+            "button",
+            { staticClass: "btn w-100", attrs: { type: "submit" } },
+            [_vm._v("Fizetés")]
           )
         : _vm._e()
     ])

@@ -1,7 +1,7 @@
 <template>
     <div class="col-md-6">
             <div class="w-100">
-                <select class="mt-3 w-100" @change="getDoctors($event)" id="appointment" name="appointment" required>
+                <select class="mt-3 w-100" @change="getDoctors($event)" id="appointment" name="medical_examination" required>
                     <option value="" selected>Válasszon vizsgálatot</option>
                     <option v-for="examination in medicalExaminations" :value="examination.id">{{ examination.name }}</option>
                 </select>
@@ -19,13 +19,14 @@
                 <select v-if="consultations" class="my-3 w-100" @change="getAppointments($event)" id="consultations" name="consultation" required>
                     <option value="" selected>Válasszon napot</option>
                     <option v-for="consultation in consultations" :value="consultation.id">{{ consultation.day + ' | ' + consultation.open + ' - ' + consultation.close}}</option>
-                    <button type="submit" class="btn w-100">Fizetés</button>
                 </select>
 
-                <!--<select v-if="consultations" class="my-3 w-100" @change="" id="consultations" name="time" required>-->
-                    <!--<option value="" selected>Válasszon napot</option>-->
-                    <!--<option v-for="consultation in consultations" :value="consultation.id">{{  }}</option>-->
-                <!--</select>-->
+                <select v-if="appointments" class="my-3 w-100" @change="goPaying($event)" id="consultations" name="appointment_time" required>
+                    <option value="" selected>Válasszon időpontot</option>
+                    <option v-for="appointment in appointments" :value="[appointment.start_at, appointment.end_at]">{{ appointment.start_at + ' - ' + appointment.end_at }}</option>
+                </select>
+
+                <button v-if="paying" type="submit" class="btn w-100">Fizetés</button>
             </div>
     </div>
 </template>
@@ -42,8 +43,10 @@
                 consultationId: null,
                 medicalExaminations: this.examinations,
                 errors: null,
-                examination: null,
-                info: null
+                examinationId: null,
+                info: null,
+                appointments: null,
+                paying: false
             }
         },
         filters: {
@@ -53,16 +56,17 @@
         },
         methods: {
             getDoctors(examination) {
-                this.examination = null
+                this.examinationId = null
                 this.doctors = null
                 this.consultations = null
                 this.info = null
                 this.consultationId = null
+                this.appointments = null
 
-                this.examination = examination.target.value
+                this.examinationId = examination.target.value
 
                 axios.post('/api/doctors/', {
-                    id: this.examination
+                    id: this.examinationId
                 })
                     .then(response => {
                         this.doctors = response.data
@@ -79,7 +83,7 @@
 
                 axios.post('/api/consultations/', {
                     id: doctor.target.value,
-                    examination: this.examination
+                    examination: this.examinationId
                 })
                     .then(response => {
                         this.info = response.data.info
@@ -91,24 +95,29 @@
             },
 
             getAppointments(consultation) {
+                this.appointments = null
                 this.consultationId = consultation
 
                 console.log(consultation.target.value)
 
                 axios.post('/api/appointments/', {
                     consultation_id: consultation.target.value,
+                    minutes: this.info.minutes
                 })
                     .then(response => {
-                        console.log(response.data)
+                        this.appointments = response.data
                     })
                     .catch(e => {
                         this.errors.push(e)
                     })
             },
 
-            formatPrice(value) {
-                let val = (value/1).toFixed(2).replace('.', ',')
-                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+            goPaying(appointment) {
+                if (appointment.target.value) {
+                    this.paying = true
+                } else {
+                    this.paying = false
+                } 
             }
         }
     }
