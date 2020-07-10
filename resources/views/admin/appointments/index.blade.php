@@ -34,7 +34,7 @@
                         <tbody>
                             @forelse($appointments as $appointment)
                                 <tr>
-                                    <td>{{ $appointment->appointment }}</td>
+                                    <td>{{ $appointment->consultation->day }} | {{ $appointment->start_at }} - {{ $appointment->end_at }}</td>
                                     <td class="text-center ">
                                         <form action="{{ route('admin.appointments.destroy', $appointment->id) }}" method="POST">
                                             @csrf

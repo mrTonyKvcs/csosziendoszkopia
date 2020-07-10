@@ -29,38 +29,38 @@
             </div>
         </div>
         <!-- Earnings (Monthly) Card Example -->
-        <div class="mb-4 col-xl-4 col-md-6">
-            <div class="py-2 shadow card border-left-primary h-100">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="mr-2 col">
-                            <div class="mb-1 text-xs font-weight-bold text-primary text-uppercase">Foglalt időpontok</div>
-                            <div class="mb-0 text-gray-800 h5 font-weight-bold">{{ $reservedAppointments->count() }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="text-gray-300 fas fa-calendar fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--<div class="mb-4 col-xl-4 col-md-6">--}}
+            {{--<div class="py-2 shadow card border-left-primary h-100">--}}
+                {{--<div class="card-body">--}}
+                    {{--<div class="row no-gutters align-items-center">--}}
+                        {{--<div class="mr-2 col">--}}
+                            {{--<div class="mb-1 text-xs font-weight-bold text-primary text-uppercase">Foglalt időpontok</div>--}}
+                            {{--<div class="mb-0 text-gray-800 h5 font-weight-bold">{{ $reservedAppointments->count() }}</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-auto">--}}
+                            {{--<i class="text-gray-300 fas fa-calendar fa-2x"></i>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="mb-4 col-xl-4 col-md-6">
-            <div class="py-2 shadow card border-left-success h-100">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="mr-2 col">
-                            <div class="mb-1 text-xs font-weight-bold text-success text-uppercase">Szabad időpont</div>
-                            <div class="mb-0 text-gray-800 h5 font-weight-bold">{{ $freeAppointment }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="text-gray-300 fas fa-calendar fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--<div class="mb-4 col-xl-4 col-md-6">--}}
+            {{--<div class="py-2 shadow card border-left-success h-100">--}}
+                {{--<div class="card-body">--}}
+                    {{--<div class="row no-gutters align-items-center">--}}
+                        {{--<div class="mr-2 col">--}}
+                            {{--<div class="mb-1 text-xs font-weight-bold text-success text-uppercase">Szabad időpont</div>--}}
+                            {{--<div class="mb-0 text-gray-800 h5 font-weight-bold">{{ $freeAppointment }}</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-auto">--}}
+                            {{--<i class="text-gray-300 fas fa-calendar fa-2x"></i>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
         <!-- Pending Requests Card Example -->
     </div>
@@ -100,9 +100,9 @@
                             {{--</tr>--}}
                         {{--</tfoot>--}}
                         <tbody>
-                            @forelse($reservedAppointments as $appointment)
+                            @forelse($appointments as $appointment)
                                 <tr>
-                                    <td>{{ $appointment->appointment }}</td>
+                                    <td>{{ $appointment->consultation->day }} | {{ $appointment->start_at }} - {{ $appointment->end_at }}</td>
                                     <td>{{ $appointment->applicant->name }}</td>
                                     <td>{{ $appointment->applicant->email }}</td>
                                     <td>{{ $appointment->applicant->phone }}</td>

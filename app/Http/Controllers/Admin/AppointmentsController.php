@@ -26,7 +26,9 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('user_id', Auth::id())
+        $appointments = Appointment::whereHas('consultation', function($q) {
+            $q->where('user_id', Auth::id());
+        })
             ->get();
 
         return view('admin.appointments.index', compact('appointments'));
