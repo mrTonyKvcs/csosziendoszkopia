@@ -16,7 +16,8 @@
                     <div class="text-center single-service wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
                         {{--<i class="icofont icofont-prescription"></i>--}}
                         <img class="icofont" src="icons/{{ $service['icon'] }}" width="55">
-                        <h4><a href="{{ route('appointments.index') }}">{{ $service['name'] }}</a></h4>
+                        <h4>{{ $service['name'] }}</h4>
+                        {{--<h4><a href="{{ route('appointments.index') }}">{{ $service['name'] }}</a></h4>--}}
                         <p class="fs-16">{{ $service['description'] }}</p>	
                     </div>
                     <!-- End Single Service -->

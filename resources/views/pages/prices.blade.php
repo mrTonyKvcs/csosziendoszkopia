@@ -41,11 +41,11 @@
                                     <li class="pr-0" style="font-size: 19px; color: #1A76D1">{{ $service['prices'][1]['text'] }}<span> {{ $service['prices'][1]['price'] }} Ft</span></li>
                                 </ul>
                             @endif
-                            @if ($service['route'] != null)
-                                <div class="table-bottom">
-                                    <a class="btn" href="{{ route($service['route']) }}">Bejelentkezés</a>
-                                </div>
-                            @endif
+                            {{--@if ($service['route'] != null)--}}
+                                {{--<div class="table-bottom">--}}
+                                    {{--<a class="btn" href="{{ route($service['route']) }}">Bejelentkezés</a>--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
 							<!-- Table Bottom -->
 						</div>
 					</div>
