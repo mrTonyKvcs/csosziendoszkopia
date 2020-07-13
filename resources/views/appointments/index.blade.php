@@ -29,6 +29,7 @@
                         <div class="col-md-6">
                             <h3>Időpontfoglalás és fizetés</h3>
                             <p>Foglaljon időpontot a vizsgálatainkra!</p>
+                            <p>Ön 5000 Ft  előleg fizetésével tud időpontot foglalni on-line, mely összeg levonásra kerül a vizsgálat árából </p>
                             <div class="mt-4 row">
                                 <div class="col-lg-12 col-md-12 col-12">
                                     <div class="form-group">

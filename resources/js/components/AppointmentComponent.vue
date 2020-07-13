@@ -14,6 +14,7 @@
                 <div class="mt-5 mb-4 info">
                     <p v-if="info">A kiválasztott vizsgálat ideje: <strong>{{ info.minutes }} </strong> perc</p>
                     <p v-if="info">A kiválasztott vizsgálat díja: <strong> {{ info.price | currency }} </strong> Ft</p>
+                    <p v-if="info">Ön 5000 Ft  előleg fizetésével tud időpontot foglalni on-line, mely összeg levonásra kerül a vizsgálat árából </p>
                 </div>
 
                 <select v-if="consultations" class="my-3 w-100" @change="getAppointments($event)" id="consultations" name="consultation" required>

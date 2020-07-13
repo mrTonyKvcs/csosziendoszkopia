@@ -32,7 +32,7 @@ class AppointmentsController extends Controller
         $request->validate([
             'name' => 'required',
             'phone' => 'required',
-            'email' => 'email',
+            'email' => 'required|email',
             'consultation' => 'required',
             'medical_examination' => 'required',
             'appointment_time' => 'required'
@@ -55,6 +55,7 @@ class AppointmentsController extends Controller
             'start_at' => $appointmentTime[0],
             'end_at' => $appointmentTime[1],
         ]);
+        //dd($applicant, $appointment, $price);
 
         $rs = $this->payment($applicant, $appointment, $price);
     }

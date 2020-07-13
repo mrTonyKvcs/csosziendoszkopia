@@ -27,6 +27,7 @@
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-12">
 							<div class="copyright-content">
+                                <a href="/pdfs/adatvedelmi-nyilatkozat.pdf" class="text-white" target="_blank">Adatvédelmi nyilatkozat</a>
 								<p>© Copyright 2020  |  csosziendoszkopia.hu </p>
 							</div>
 						</div>

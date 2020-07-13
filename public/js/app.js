@@ -1943,6 +1943,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['examinations'],
@@ -38288,6 +38289,14 @@ var render = function() {
                 _vm._v(" " + _vm._s(_vm._f("currency")(_vm.info.price)) + " ")
               ]),
               _vm._v(" Ft")
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.info
+          ? _c("p", [
+              _vm._v(
+                "Ön 5000 Ft  előleg fizetésével tud időpontot foglalni on-line, mely összeg levonásra kerül a vizsgálat árából "
+              )
             ])
           : _vm._e()
       ]),
