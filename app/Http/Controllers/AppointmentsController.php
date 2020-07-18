@@ -115,6 +115,9 @@ class AppointmentsController extends Controller
 
         if ($applicant) {
 
+            $response = Http::get('http://szamlazz-api.site/examples/document/invoice/create_invoice_with_default_data.php')->json();
+            dd($response);
+
             $applicant->appointment = $appointment->appointment;
 
             if ($request->email != null) {
