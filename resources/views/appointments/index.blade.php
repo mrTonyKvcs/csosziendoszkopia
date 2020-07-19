@@ -46,6 +46,21 @@
                                         <input name="phone" type="text" placeholder="Telefonszám" required>
                                     </div>
                                 </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <input name="zip" type="text" placeholder="Irányítószám" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <input name="city" type="text" placeholder="Város" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <input name="street" type="text" placeholder="Utca" required>
+                                    </div>
+                                </div>
                                 <div class="col-lg-12 col-md-12 col-12">
                                     <div class="form-group">
                                         <textarea name="comment" placeholder="Megjegyzés....."></textarea>

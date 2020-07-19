@@ -35,7 +35,10 @@ class AppointmentsController extends Controller
             'email' => 'required|email',
             'consultation' => 'required',
             'medical_examination' => 'required',
-            'appointment_time' => 'required'
+            'appointment_time' => 'required',
+            'zip' => 'required',
+            'city' => 'required',
+            'street' => 'required'
         ]);
 
         $price = \DB::table('doctor_medical_examination')
@@ -46,7 +49,7 @@ class AppointmentsController extends Controller
 
         $appointmentTime = explode(',', $request->appointment_time);
 
-        $applicant = Applicant::create($request->only(['name', 'phone', 'appointment', 'email', 'comment']));
+        $applicant = Applicant::create($request->only(['name', 'phone', 'appointment', 'email', 'comment', 'zip', 'city', 'street']));
 
         $appointment = Appointment::create([
             'consultation_id' => $request->consultation,
