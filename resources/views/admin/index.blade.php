@@ -5,7 +5,7 @@
     <div class="col-lg-12">
 
         <!-- Page Heading -->
-        <h1 class="mb-2 text-gray-800 h3">Időpontok</h1>
+        <h1 class="mb-2 text-gray-800 h3">Rendelési napok</h1>
 
         <!-- DataTales Example -->
         <div class="mb-4 shadow card">

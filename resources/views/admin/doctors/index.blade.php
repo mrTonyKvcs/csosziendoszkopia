@@ -5,7 +5,7 @@
     <div class="col-lg-12">
 
         <!-- Page Heading -->
-        <h1 class="mb-2 text-gray-800 h3">Időpontok</h1>
+        <h1 class="mb-2 text-gray-800 h3">Vizsgálatok</h1>
 
         <!-- DataTales Example -->
         <div class="mb-4 shadow card">
@@ -17,14 +17,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Vizsgálat típusa</th>
-                                <th>Vizsgáló orvos neve</th>
-                                <th>Időpont</th>
-                                <th>Páciens neve</th>
-                                <th>Páciens taj-száma</th>
-                                <th>Páciens email címe</th>
-                                <th>Páciens telefonszáma</th>
-                                <th>Adatok</th>
+                                <th>Neve</th>
                                 <th>Törlés</th>
                             </tr>
                         </thead>
@@ -39,22 +32,11 @@
                             {{--</tr>--}}
                         {{--</tfoot>--}}
                         <tbody>
-                            @forelse($appointments as $appointment)
+                            @forelse($doctors  as $doctor)
                                 <tr>
-                                    <td>{{ $appointment->medicalExamination->name }}</td>
-                                    <td>{{ $appointment->consultation->user->name }}</td>
-                                    <td>{{ $appointment->consultation()->first()->day }} | {{ $appointment->start_at }} - {{ $appointment->end_at }}</td>
-                                    <td>{{ $appointment->applicant->name }}</td>
-                                    <td>{{ $appointment->applicant->social_security_number }}</td>
-                                    <td>{{ $appointment->applicant->email }}</td>
-                                    <td>{{ $appointment->applicant->phone }}</td>
-                                    <td class="text-center">
-                                        <a href="{{ route('admin.appointments.details', $appointment->applicant->id) }}" class="btn btn-primary btn-icon-split">
-                                            <span class="text">Adatok</span>
-                                        </a>
-                                    </td>
+                                    <td>{{ $doctor->name }}</td>
                                     <td class="text-center ">
-                                        <form action="{{ route('admin.appointments.destroy', $appointment->id) }}" method="POST">
+                                        <form action="{{ route('admin.doctors.destroy', $doctor->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button href="#" class="btn btn-danger btn-icon-split">

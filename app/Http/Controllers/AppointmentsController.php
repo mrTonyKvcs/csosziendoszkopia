@@ -21,7 +21,9 @@ class AppointmentsController extends Controller
 
     public function index()
     {
-        $medicalExaminations = MedicalExamination::with('doctors')->get();
+        $medicalExaminations = MedicalExamination::
+            isActive()
+            ->with('doctors')->get();
         //$appointments = $this->appointments->get();
 
         return view('appointments.index', compact('medicalExaminations'));
@@ -38,7 +40,8 @@ class AppointmentsController extends Controller
             'appointment_time' => 'required',
             'zip' => 'required',
             'city' => 'required',
-            'street' => 'required'
+            'street' => 'required',
+            'social_security_number' => 'required'
         ]);
 
         $price = \DB::table('doctor_medical_examination')
@@ -49,7 +52,7 @@ class AppointmentsController extends Controller
 
         $appointmentTime = explode(',', $request->appointment_time);
 
-        $applicant = Applicant::create($request->only(['name', 'phone', 'appointment', 'email', 'comment', 'zip', 'city', 'street']));
+        $applicant = Applicant::create($request->only(['name', 'phone', 'appointment', 'email', 'comment', 'zip', 'city', 'street', 'social_security_number']));
 
         $appointment = Appointment::create([
             'consultation_id' => $request->consultation,

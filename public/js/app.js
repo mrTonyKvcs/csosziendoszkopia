@@ -1946,7 +1946,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['examinations'],
+  props: ['examinations', 'isAdmin'],
   data: function data() {
     return {
       doctors: null,
@@ -1957,7 +1957,8 @@ __webpack_require__.r(__webpack_exports__);
       examinationId: null,
       info: null,
       appointments: null,
-      paying: false
+      paying: false,
+      admin: this.isAdmin
     };
   },
   filters: {
@@ -38273,33 +38274,37 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-5 mb-4 info" }, [
-        _vm.info
-          ? _c("p", [
-              _vm._v("A kiválasztott vizsgálat ideje: "),
-              _c("strong", [_vm._v(_vm._s(_vm.info.minutes) + " ")]),
-              _vm._v(" perc")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.info
-          ? _c("p", [
-              _vm._v("A kiválasztott vizsgálat díja: "),
-              _c("strong", [
-                _vm._v(" " + _vm._s(_vm._f("currency")(_vm.info.price)) + " ")
-              ]),
-              _vm._v(" Ft")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.info
-          ? _c("p", [
-              _vm._v(
-                "Ön 5000 Ft  előleg fizetésével tud időpontot foglalni on-line, mely összeg levonásra kerül a vizsgálat árából "
-              )
-            ])
-          : _vm._e()
-      ]),
+      _vm.admin == false
+        ? _c("div", { staticClass: "mt-5 mb-4 info" }, [
+            _vm.info
+              ? _c("p", [
+                  _vm._v("A kiválasztott vizsgálat ideje: "),
+                  _c("strong", [_vm._v(_vm._s(_vm.info.minutes) + " ")]),
+                  _vm._v(" perc")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.info
+              ? _c("p", [
+                  _vm._v("A kiválasztott vizsgálat díja: "),
+                  _c("strong", [
+                    _vm._v(
+                      " " + _vm._s(_vm._f("currency")(_vm.info.price)) + " "
+                    )
+                  ]),
+                  _vm._v(" Ft")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.info
+              ? _c("p", [
+                  _vm._v(
+                    "Ön 5000 Ft  előleg fizetésével tud időpontot foglalni on-line, mely összeg levonásra kerül a vizsgálat árából "
+                  )
+                ])
+              : _vm._e()
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _vm.consultations
         ? _c(

@@ -25,12 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $authUserId = Auth::id();
-
         $appointments = Appointment::whereHas('consultation', function($q) {
-            $q->where('user_id', Auth::id());
-        })
-        ->get();
+                $q->where('user_id', Auth::id());
+            })
+            ->get();
+
+        if (Auth::user()->role == 'super-admin') {
+            $appointments = Appointment::all();
+        }
 
         $allAppointments = $appointments->count();
 

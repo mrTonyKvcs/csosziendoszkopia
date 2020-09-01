@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Applicant;
 use App\Appointment;
+use App\MedicalExamination;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,27 +29,52 @@ class AppointmentsController extends Controller
     public function index()
     {
         $appointments = Appointment::whereHas('consultation', function($q) {
-            $q->where('user_id', Auth::id());
-        })
+                $q->where('user_id', Auth::id());
+            })
             ->get();
+
+        if (Auth::user()->role == 'super-admin') {
+            $appointments = Appointment::all();
+        }
 
         return view('admin.appointments.index', compact('appointments'));
     }
 
     public function create()
     {
-        return view('admin.appointments.create');
+        $medicalExaminations = MedicalExamination::
+            isActive()
+            ->with('doctors')->get();
+
+        return view('admin.appointments.create', compact('medicalExaminations'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'appointment' => 'required'
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'consultation' => 'required',
+            'medical_examination' => 'required',
+            'appointment_time' => 'required',
+            'zip' => 'required',
+            'city' => 'required',
+            'street' => 'required',
+            'social_security_number' => 'required'
         ]);
 
-        $request['user_id'] = Auth::id();
+        $appointmentTime = explode(',', $request->appointment_time);
 
-        Appointment::create($request->all());
+        $applicant = Applicant::create($request->only(['name', 'phone', 'appointment', 'email', 'comment', 'zip', 'city', 'street', 'social_security_number']));
+
+        $appointment = Appointment::create([
+            'consultation_id' => $request->consultation,
+            'medical_examination_id' => $request->medical_examination,
+            'applicant_id' => $applicant->id,
+            'start_at' => $appointmentTime[0],
+            'end_at' => $appointmentTime[1],
+        ]);
 
         return back();
     }
@@ -59,5 +86,12 @@ class AppointmentsController extends Controller
         $appointment->delete();
 
         return back();
+    }
+
+    public function details($id)
+    {
+        $applicant = Applicant::find($id);
+
+        return view('admin.appointments.details', compact('applicant'));
     }
 }

@@ -24,7 +24,15 @@ Route::post('/callback', 'Api\BarionController@callback');
 
 //Get doctors
 Route::post('/doctors', function(Request $request) {
-    $doctors = MedicalExamination::find($request->id)->doctors;
+    // $doctors = MedicalExamination::find($request->id)->doctors;
+    $userIds = \DB::table('doctor_medical_examination')
+        ->where('medical_examination_id', $request->id)
+        ->where('is_active', true)
+        ->pluck('user_id')
+        ->toArray();
+
+    $doctors = \App\User::whereIn('id', $userIds)
+        ->get();
 
     return $doctors;
     //return response($doctors);

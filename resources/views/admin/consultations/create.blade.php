@@ -31,6 +31,7 @@
                 <div class="form-group">
                     <label for="formGroupExampleInput">Rendelés napja</label>
                     <input type="date" name="day" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                    {{-- <input type="text" class="form-control datePicker" placeholder="Pick the multiple dates"> --}}
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput">Első időpont</label>
@@ -59,3 +60,12 @@
     </div>
     </div>
 @endsection
+
+{{-- @section('date-picker') --}}
+{{--     <script> --}}
+{{--         $('.datePicker').datepicker({ --}}
+{{--             multidate: true, --}}
+{{--             format: 'yyyy-mm-dd' --}}
+{{--         }); --}}
+{{--     </script> --}}
+{{-- @endsection --}}

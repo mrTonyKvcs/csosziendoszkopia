@@ -19,6 +19,7 @@
   <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
   <link href="/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/css/datepicker.css">
 </head>
 
 <body id="page-top">
@@ -42,6 +43,24 @@
         <a class="nav-link" href="{{ route('home') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
+      </li>
+
+      <div class="sidebar-heading">
+        Orvosok
+      </div>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin.doctors.index') }}">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Összes orvos</span></a>
+      </li>
+
+      <div class="sidebar-heading">
+        Vizsgálatok
+      </div>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin.medical-examinations.index') }}">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Összes vizsgálat</span></a>
       </li>
 
       <div class="sidebar-heading">
@@ -220,6 +239,10 @@
   <script src="/admin/vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="/admin/js/demo/datatables-demo.js"></script>
+  {{-- @hasSection('date-picker') --}}
+  {{--     @yield('date-picker') --}}
+  {{-- @endif --}}
+    <script src="{{ mix('js/admin.js') }}" defer></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
             <div class="col-lg-12">
 
                 <!-- Page Heading -->
-                <h1 class="mb-2 text-gray-800 h3">Új időpont létrehozása</h1>
+                <h1 class="mb-2 text-gray-800 h3">Páciens adatai</h1>
 
                 <!-- DataTales Example -->
                 <div class="mb-4 shadow card">
@@ -14,58 +14,55 @@
                         {{--<h6 class="m-0 font-weight-bold text-primary">Online konzultációra jelentkezők</h6>--}}
                         {{--</div>--}}
                     <div class="card-body">
-                        <form class="form" action="{{ route('admin.appointments.store') }}" method="POST">
-                            @csrf
                             <div class="row d-flex flex-column align-items-center">
                                 <div class="col-md-6">
                                     <div class="mt-4 row">
                                         <div class="col-lg-12 col-md-12 col-12">
                                             <div class="form-group">
-                                                <input class="form-control" name="name" type="text" placeholder="Név" rerquired>
+                                                <input class="form-control" name="name" type="text" placeholder="Név" value="{{ $applicant->name }}" rerquired>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <div class="form-group">
-                                                <input class="form-control"  name="email" type="email" placeholder="Email" required>
+                                                <input class="form-control"  name="email" type="email" placeholder="Email" value="{{ $applicant->email }}" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <div class="form-group">
-                                                <input name="phone" class="form-control" type="text" placeholder="Telefonszám" required>
+                                                <input name="phone" class="form-control" type="text" placeholder="Telefonszám" value="{{ $applicant->phone }}" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-12">
                                             <div class="form-group">
-                                                <input class="form-control" name="social_security_number" type="number" placeholder="TAJ-szám" required>
+                                                <input class="form-control" name="social_security_number" type="number" placeholder="TAJ-szám" value="{{ $applicant->social_security_number }}" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <div class="form-group">
-                                                <input class="form-control" name="zip" type="text" placeholder="Irányítószám" required>
+                                                <input class="form-control" name="zip" type="text" placeholder="Irányítószám" value="{{ $applicant->zip }}" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <div class="form-group">
-                                                <input class="form-control" name="city" type="text" placeholder="Város" required>
+                                                <input class="form-control" name="city" type="text" placeholder="Város" value="{{ $applicant->city }}" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-12">
                                             <div class="form-group">
-                                                <input class="form-control" name="street" type="text" placeholder="Utca" required>
+                                                <input class="form-control" name="street" type="text" placeholder="Utca" value="{{ $applicant->street }}" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-12">
                                             <div class="form-group">
-                                                <textarea class="form-control" name="comment" placeholder="Megjegyzés....."></textarea>
+                                                <textarea class="form-control" name="comment" placeholder="Megjegyzés....." value="{{ $applicant->comment }}"></textarea>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <a href="{{ route('admin.appointments.index') }}">Vissza</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <appointment-component :isAdmin="true" :examinations="{{ $medicalExaminations }}"></appointment-component>
                             </div>
-                        </form>
                     </div>
                 </div>
 

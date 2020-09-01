@@ -28,6 +28,17 @@ Auth::routes(['register' => false]);
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', 'HomeController@index')->name('home');
 
+    //Doctors
+    Route::get('orvosok', ['as' => 'admin.doctors.index', 'uses' => 'Admin\DoctorsController@index']);
+
+    Route::delete('orvosok/{id}', ['as' => 'admin.doctors.destroy', 'uses' => 'Admin\DoctorsController@destroy']);
+
+    //MedicalExamination
+    Route::get('vizsgalatok', ['as' => 'admin.medical-examinations.index', 'uses' => 'Admin\MedicalExaminationsController@index']);
+    Route::get('vizsgalat/{id}', ['as' => 'admin.medical-examinations.show', 'uses' => 'Admin\MedicalExaminationsController@show']);
+    Route::put('vizsgalat/{id}', ['as' => 'admin.medical-examinations.update', 'uses' => 'Admin\MedicalExaminationsController@update']);
+    Route::delete('vizsgalatok/{id}', ['as' => 'admin.medical-examinations.destroy', 'uses' => 'Admin\MedicalExaminationsController@index']);
+
     //Consultations
     Route::get('rendelesek', ['as' => 'admin.consultations.index', 'uses' => 'Admin\ConsultationsController@index']);
     Route::get('rendelesek/uj-rendeles', ['as' => 'admin.consultations.create', 'uses' => 'Admin\ConsultationsController@create']);
@@ -38,4 +49,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/idopontok/uj-letrehozas', [ 'as' => 'admin.appointments.create', 'uses' => 'Admin\AppointmentsController@create']);
     Route::post('/idopontok/uj-letrehozas', [ 'as' => 'admin.appointments.store', 'uses' => 'Admin\AppointmentsController@store']);
     Route::delete('/idopontok/{id}', [ 'as' => 'admin.appointments.destroy', 'uses' => 'Admin\AppointmentsController@destroy']);
+
+    Route::get('/jelentkezo-adatai/{id}', [ 'as' => 'admin.appointments.details', 'uses' => 'Admin\AppointmentsController@details']);
 });

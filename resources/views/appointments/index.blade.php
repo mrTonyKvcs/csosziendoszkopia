@@ -46,6 +46,11 @@
                                         <input name="phone" type="text" placeholder="Telefonszám" required>
                                     </div>
                                 </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="form-group">
+                                        <input name="social_security_number" type="text" placeholder="TAJ-szám" required>
+                                    </div>
+                                </div>
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <input name="zip" type="text" placeholder="Irányítószám" required>
@@ -70,7 +75,7 @@
                             <div class="row">
                             </div>
                         </div>
-                        <appointment-component :examinations="{{ $medicalExaminations }}"></appointment-component>
+                        <appointment-component :isAdmin="false" :examinations="{{ $medicalExaminations }}"></appointment-component>
                     </div>
                 </form>
 			</div>
