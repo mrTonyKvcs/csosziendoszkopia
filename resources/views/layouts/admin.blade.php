@@ -242,6 +242,19 @@
   {{-- @hasSection('date-picker') --}}
   {{--     @yield('date-picker') --}}
   {{-- @endif --}}
+  <script>
+      $('#checkbox-value').text($('#checkbox1').val());
+
+      $("#checkbox1").on('change', function() {
+          if ($(this).is(':checked')) {
+              $(this).attr('value', 1);
+          } else {
+              $(this).attr('value', 0);
+          }
+
+          $('#checkbox-value').text($('#checkbox1').val());
+      });
+  </script>
     <script src="{{ mix('js/admin.js') }}" defer></script>
 </body>
 

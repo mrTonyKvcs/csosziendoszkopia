@@ -73,6 +73,10 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="form-check d-flex">
+                                    <input class="" type="checkbox" value="" id="defaultCheck1" style="width: 50px; height: auto; margin-top: 7px;" required>
+                                    <label class="form-check-label" for="defaultCheck1">Elfogadom az <a href="/pdfs/csoszi-endkoszkopia-aszf.pdf" class="text-primary" target="_blank">általános szerződési feltételek</a>et és az <a href="/pdfs/adatvedelmi-nyilatkozat.pdf" class="text-primary" target="_blank">adatvédelmi nyilatkozatot!</a></label>
+                                </div>
                             </div>
                         </div>
                         <appointment-component :isAdmin="false" :examinations="{{ $medicalExaminations }}"></appointment-component>

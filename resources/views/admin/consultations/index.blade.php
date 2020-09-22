@@ -21,6 +21,7 @@
                                 <th>Rendelés</th>
                                 <th>Első időpont</th>
                                 <th>Utolsó időpont</th>
+                                <th>Export</th>
                                 <th>Törlés</th>
                             </tr>
                         </thead>
@@ -41,6 +42,14 @@
                                     <td>{{ $consultation->day }}</td>
                                     <td>{{ $consultation->open }}</td>
                                     <td>{{ $consultation->close }}</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-success btn-icon-split" href="{{ route('admin.consultations.export', $consultation->id) }}">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-file-export"></i>
+                                            </span>
+                                            <span class="text">Jelentkezok exportalasa<span>
+                                        </a>
+                                    </td>
                                     <td class="text-center ">
                                         <form action="{{ route('admin.consultations.destroy', $consultation->id) }}" method="POST">
                                             @csrf

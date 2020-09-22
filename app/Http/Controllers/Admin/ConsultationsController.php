@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Office;
 use App\Consultation;
+use App\Exports\AppointmentsExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ConsultationsController extends Controller
 {
@@ -35,7 +38,9 @@ class ConsultationsController extends Controller
     {
         $doctors = User::where('role', 'doctor')->get();
 
-        return view('admin.consultations.create', compact('doctors'));
+        $offices = Office::all();
+
+        return view('admin.consultations.create', compact('doctors', 'offices'));
     }
 
     public function store(Request $request)
@@ -45,9 +50,11 @@ class ConsultationsController extends Controller
             'day' => 'required',
             'open' => 'required',
             'close' => 'required',
+            'office_id' => 'required',
+            'is_digital' => 'required'
         ]);
 
-        Consultation::create($request->only(['user_id', 'day', 'open', 'close']));
+        Consultation::create($request->only(['user_id', 'day', 'open', 'close', 'office_id', 'is_digital']));
 
         return back();
     }
@@ -59,5 +66,15 @@ class ConsultationsController extends Controller
         $consultations->delete();
 
         return back();
+    }
+
+    public function export(Consultation $consultation) 
+    {
+        $appointments = $consultation->appointments;
+
+        $export = new AppointmentsExport([$appointments]);
+        $office = \Str::slug($consultation->office->name);
+
+        return Excel::download($export, $office . '-' . $consultation->day . '.xlsx');
     }
 }

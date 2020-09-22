@@ -40,9 +40,28 @@ Route::post('/doctors', function(Request $request) {
 
 //Get consultations
 Route::post('/consultations', function(Request $request) {
-    $consultations = Consultation::where('user_id', $request->id)
-        ->active()
-        ->get();
+
+    if ($request->examination == 2) {
+        $consultations = Consultation::where('user_id', $request->id)
+            ->where('day', '>=', now()->addWeek())
+            ->active()
+            ->orderBy('day')
+            ->get();
+    } 
+    elseif ($request->examination == 4) {
+        $consultations = Consultation::where('user_id', $request->id)
+            ->where('is_digital', true)
+            ->active()
+            ->orderBy('day')
+            ->get();
+    }
+    else {
+        $consultations = Consultation::where('user_id', $request->id)
+            ->where('is_digital', false)
+            ->active()
+            ->orderBy('day')
+            ->get();
+    }
 
     $examination = \DB::table('doctor_medical_examination')
             ->where('user_id', $request->id)

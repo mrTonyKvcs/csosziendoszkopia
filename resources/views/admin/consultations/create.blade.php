@@ -15,6 +15,15 @@
         <div class="card-body">
             <form action="{{ route('admin.consultations.store') }}" method="POST">
                 @csrf
+                <div class="form-group">
+                        <label for="formGroupExampleInput">Orvosi rendelő</label>
+                        <select name="office_id" class="custom-select" id="inputGroupSelect01">
+                            <option selected>Orvosi rendelő kivalasztasa...</option>
+                            @foreach($offices as $office)
+                                <option value="{{ $office->id }}">{{ $office->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 @if(auth()->user()->role == 'doctor')
                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                 @else
@@ -40,6 +49,10 @@
                 <div class="form-group">
                     <label for="formGroupExampleInput">Utolsó időpont</label>
                     <input type="time" name="close" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" id="checkbox1" name="is_digital" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Online konzultációs rendelés</label>
                 </div>
                 <button type="submit" class="mb-3 btn btn-success btn-icon-split mr-md-3">
                     <span class="icon text-white-50">
